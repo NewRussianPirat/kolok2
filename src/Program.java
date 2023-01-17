@@ -9,31 +9,23 @@ public class Program {
         state = state1;
     }
 
-    public void Turn() throws Exception {
-        state.Turn(this);
+    public void turn() { state.turn(this); }
+
+    public void open() { state.open(this); }
+
+    public void close() { state.close(this); }
+
+    public boolean isOpened() {
+        return state.isOpened();
     }
 
-    public void Open() throws Exception {
-        state.Open(this);
+    public boolean isClosed() {
+        return state.isClosed();
     }
 
-    public void Close() throws Exception {
-        state.Close(this);
-    }
-
-    public boolean IsOpened() {
-        return state.IsOpened();
-    }
-
-    public boolean IsClosed() {
-        return state.IsClosed();
-    }
-
-    public boolean IsTurned() {
-        return state.IsTurned();
-    }
+    public boolean isTurned() { return state.isTurned(); }
 
     public void Do() {
-        state.DoThis();
+        state.doThis();
     }
 }

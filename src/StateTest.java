@@ -5,31 +5,28 @@ import static org.junit.jupiter.api.Assertions.*;
 class StateTest {
 
     @Test
-    void turn() throws Exception {
-        assertThrows(Exception.class, () -> { new State_Turned().Close(null); });
+    void turn() {
         Program program = new Program();
-        assertFalse(program.IsTurned());
-        program.Turn();
-        assertTrue(program.IsTurned());
+        assertFalse(program.isTurned());
+        program.turn();
+        assertTrue(program.isTurned());
     }
 
     @Test
-    void open() throws Exception {
+    void open() {
         Program program = new Program();
-        assertThrows(Exception.class, () -> { new State_Opened().Open(null); });
-        program.Close();
-        assertFalse(program.IsOpened());
-        program.Open();
-        assertTrue(program.IsOpened());
+        program.close();
+        assertFalse(program.isOpened());
+        program.open();
+        assertTrue(program.isOpened());
     }
 
     @Test
-    void close() throws Exception {
-        assertThrows(Exception.class, () -> { new State_Closed().Close(null); });
+    void close() {
         Program program = new Program();
-        assertFalse(program.IsClosed());
-        program.Close();
-        assertTrue(program.IsClosed());
+        assertFalse(program.isClosed());
+        program.close();
+        assertTrue(program.isClosed());
     }
 
     @Test
@@ -37,29 +34,29 @@ class StateTest {
         State state_opened = new State_Opened();
         State state_turned = new State_Turned();
         State state_closed = new State_Closed();
-        assertEquals("Program is opened", state_opened.DoThis());
-        assertEquals("Program is turned", state_turned.DoThis());
-        assertEquals("Program is closed", state_closed.DoThis());
+        assertEquals("Program is opened", state_opened.doThis());
+        assertEquals("Program is turned", state_turned.doThis());
+        assertEquals("Program is closed", state_closed.doThis());
     }
 
     @Test
     void isOpened() {
-        assertTrue(new State_Opened().IsOpened());
-        assertFalse(new State_Turned().IsOpened());
-        assertFalse(new State_Closed().IsOpened());
+        assertTrue(new State_Opened().isOpened());
+        assertFalse(new State_Turned().isOpened());
+        assertFalse(new State_Closed().isOpened());
     }
 
     @Test
     void isTurned() {
-        assertFalse(new State_Opened().IsTurned());
-        assertTrue(new State_Turned().IsTurned());
-        assertFalse(new State_Closed().IsTurned());
+        assertFalse(new State_Opened().isTurned());
+        assertTrue(new State_Turned().isTurned());
+        assertFalse(new State_Closed().isTurned());
     }
 
     @Test
     void isClosed() {
-        assertFalse(new State_Opened().IsClosed());
-        assertFalse(new State_Turned().IsClosed());
-        assertTrue(new State_Closed().IsClosed());
+        assertFalse(new State_Opened().isClosed());
+        assertFalse(new State_Turned().isClosed());
+        assertTrue(new State_Closed().isClosed());
     }
 }

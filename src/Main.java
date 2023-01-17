@@ -1,12 +1,12 @@
 public class Main {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         Program program = new Program();
         program.Do();
-        program.Turn();
+        program.turn();
         program.Do();
-        program.Close();
+        program.close();
         program.Do();
-        program.Open();
+        program.open();
         program.Do();
     }
 }

@@ -1,54 +1,27 @@
 public class State_Closed extends State {
 
     @Override
-    public void Turn(Program program) throws Exception {
-        if (program == null) {
-            throw new Exception("Program == null");
-        }
-        program.state = new State_Turned();
-    }
+    public void turn(Program program) { program.state = new State_Turned(); }
 
     @Override
-    public void Open(Program program) throws Exception {
-        if (program == null) {
-            throw new Exception("Program == null");
-        }
-        program.state = new State_Opened();
-    }
+    public void open(Program program) { program.state = new State_Opened(); }
 
     @Override
-    public void Close(Program program) throws Exception {
-        if (program == null) {
-            throw new Exception("Program == null");
-        }
-        return;
-    }
+    public void close(Program program) {}
 
     @Override
-    public boolean IsOpened() {
-        return false;
-    }
+    public boolean isOpened() { return false; }
 
     @Override
-    public boolean IsTurned() {
-        return false;
-    }
+    public boolean isTurned() { return false; }
 
     @Override
-    public boolean IsClosed() {
-        return true;
-    }
+    public boolean isClosed() { return true; }
 
     @Override
-    public String DoThis() {
-        String string = new String("Program is closed");
+    public String doThis() {
+        String string = "Program is closed";
         System.out.println(string);
         return string;
-    }
-
-    @Override
-    public int compareTo(State state) {
-        if (state.IsClosed()) return 0;
-        return -1;
     }
 }
